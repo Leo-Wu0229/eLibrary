@@ -1,0 +1,652 @@
+/* CSS Variables for theme consistency (Light Pink/Magenta Theme) */
+:root {
+    --primary-color: #FF69B4;       /* Hot Pink/Magenta */
+    --secondary-color: #8A2BE2;     /* Blue Violet (Deep Purple accent) */
+    --tertiary-color: #FFD700;      /* Gold/Yellow (Highlight) */
+    --quaternary-color: #DC143C;    /* Crimson Red (Alert/Important) */
+    --background-light: #FFF0F5;    /* Gradient Start: Lavender Blush (Very Light Pink) */
+    --radial-stop-color: #FFB6C1;   /* Gradient Stop: Light Pink */
+    --text-dark: #333333;           /* Darker text for readability */
+    --nav-bg: #4B0082;              /* Indigo (Deep Navy/Purple for nav bar) */
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --electric-color: #FF00FF;      /* Electric Magenta/Fuchsia */
+}
+
+/* Base and Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    /* Applied the new radial pink gradient background */
+    background: radial-gradient(circle at top left, var(--background-light), var(--radial-stop-color));
+    background-attachment: fixed;
+    color: var(--text-dark);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- ADVANCED ANIMATIONS --- */
+
+/* Keyframes for Electric Grid Background */
+@keyframes electric-glow {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+/* Electric Grid Background Container */
+.electric-grid-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -100;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(255, 0, 255, 0.08), /* Magenta Grid Lines */
+        rgba(255, 0, 255, 0.08) 1px,
+        transparent 1px,
+        transparent 50px
+    ),
+    repeating-linear-gradient(
+        90deg,
+        rgba(255, 0, 255, 0.08),
+        rgba(255, 0, 255, 0.08) 1px,
+        transparent 1px,
+        transparent 50px
+    );
+    background-size: 50px 50px;
+    animation: electric-glow 30s linear infinite;
+    opacity: 0.6;
+}
+
+/* Keyframes for Glowing Navigation Tabs */
+@keyframes nav-glow {
+    0% { box-shadow: 0 0 5px var(--electric-color), 0 0 10px var(--electric-color); }
+    50% { box-shadow: 0 0 20px var(--electric-color), 0 0 30px var(--primary-color); }
+    100% { box-shadow: 0 0 5px var(--electric-color), 0 0 10px var(--electric-color); }
+}
+
+/* --- Scroll Reveal Styling --- */
+.scroll-reveal {
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1) translateX(0); 
+}
+
+/* Specific initial states for animation */
+.from-bottom {
+    transform: translateY(50px);
+}
+.from-left {
+    transform: translateX(-50px);
+}
+.scale-up {
+    transform: scale(0.95);
+}
+
+
+/* --- Header & Navigation --- */
+.main-header {
+    background-color: var(--nav-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.main-nav {
+    display: flex;
+}
+
+.nav-item {
+    color: #fff;
+    margin-left: 25px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.nav-item:hover, .nav-item.active {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* Apply Glowing Animation to Active Nav Tabs */
+.nav-item.active {
+    background-color: var(--primary-color);
+    animation: nav-glow 3s infinite ease-in-out;
+}
+
+.nav-icon-img { /* Styling for nav bar images */
+    height: 20px;
+    width: 20px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+
+/* --- Content Layout --- */
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Home Page Hero (General Digital Learning) --- */
+.hero-advanced {
+    /* CORRECTED IMAGE PATH: Home page uses main hero image */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/hero_main.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+    margin-bottom: 40px;
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.tagline {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-button:hover {
+    background-color: var(--secondary-color); /* Hover to purple */
+    transform: scale(1.05);
+}
+
+/* --- Dynamic Electric Border Card Effect --- */
+
+.year-card {
+    position: relative;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    border: 1px solid transparent; 
+    overflow: hidden; 
+}
+
+.year-card:hover {
+    transform: translateY(-8px);
+    /* Electric glow on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2), 0 0 15px var(--electric-color); 
+}
+
+.primary .folder-icon { color: var(--primary-color); }
+.secondary .folder-icon { color: var(--secondary-color); }
+.tertiary .folder-icon { color: var(--tertiary-color); }
+.quaternary .folder-icon { color: var(--quaternary-color); }
+
+.year-folders-grid {
+    text-align: center;
+    padding-bottom: 60px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+/* Footer */
+
+
+/* --- FOOTER FIX --- */
+.main-footer { 
+    background-color: var(--nav-bg); 
+    color: #f0f0f0; /* Lighter text color */
+    text-align: center; 
+    padding: 20px; 
+    font-size: 0.9em; 
+    margin-top: auto; /* Pushes footer to the bottom of the viewport */
+    width: 100%;
+    /* Ensure the text itself is styled correctly */
+    box-sizing: border-box; 
+}
+
+/* NEW RULE: Ensure the text inside the footer is fully visible and bold */
+.main-footer p {
+    margin: 0; /* Remove any default paragraph margin that might be interfering */
+    color: inherit; /* Inherit the white color from the parent footer */
+    font-weight: 600; /* Ensure text is bold */
+}
+/* --- Materials Page Header Styles (Themed Image Backgrounds) --- */
+
+/* Base style for all material page headers */
+.materials-page-hero {
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px;
+    margin-bottom: 40px;
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    background-color: #000;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.materials-page-hero h1 {
+    color: white; 
+    font-size: 2.5em;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.materials-page-hero p {
+    color: #f1f1f1;
+    font-size: 1.1em;
+}
+
+/* --- Specific Hero Backgrounds (Pages 2, 3, 4) --- */
+/* CORRECTED IMAGE PATHS */
+/* Assuming images folder is NEXT TO styles.css (in the root) */
+
+/* Home Page Hero (index.html) */
+.hero-advanced {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/hero_main.jpg') no-repeat center center/cover;
+    /* ... */
+}
+
+/* First Year Full Page Background (Applied to <main>) */
+.first-year-full-bg {
+    /* If 1.jpg is in the /images folder next to this CSS file: */
+    background: linear-gradient(rgba(10, 123, 151, 0.7), rgba(10, 123, 151, 0.7)), 
+                url('images/1.jpg') no-repeat fixed center; 
+    background-size: cover;
+    /* ... */
+}
+
+
+/* Individual Material Page Hero Sections */
+/* These styles are applied to the hero section element, NOT the main element. */
+.hero-first-year {
+    /* Since first year uses .first-year-full-bg on <main>, this section must be transparent or clear its background. */
+    background: none; 
+}
+
+.hero-second-year {
+    background: none;
+}
+
+.hero-third-year {
+    background: none;
+}
+
+.hero-fourth-year {
+    background: none;
+}
+
+/* Base style for non-material page headers (About/Contact) */
+.page-header {
+    text-align: center;
+    padding: 60px 20px 40px; 
+    margin-bottom: 30px;
+
+    /* Pink/Purple Gradient Overlay on the main hero image */
+    background: linear-gradient(
+        135deg, 
+        rgba(255, 105, 180, 0.9),  /* Hot Pink Overlay (Primary Color) */
+        rgba(138, 43, 226, 0.8)    /* Blue Violet Overlay (Secondary Color) */
+    ), 
+    url('images/hero_main.jpg') no-repeat center center/cover; /* CORRECTED IMAGE PATH */
+    
+    border-radius: 10px;
+    color: white; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+.page-header h1 {
+    color: white; 
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    border-bottom: none; 
+    padding-bottom: 0;
+}
+.page-header p {
+    color: #eee;
+    font-size: 1.1em;
+}
+
+/* --- Specific Full Page Background (First Year Materials) --- */
+.hero-advanced {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/hero_main.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+    margin-bottom: 40px;
+}
+
+.cta-button:hover { background-color: var(--secondary-color); transform: scale(1.05); }
+
+/* --- Dynamic Electric Border Card Effect (No Change) --- */
+.year-card { position: relative; background-color: #fff; padding: 30px; border-radius: 10px; box-shadow: var(--card-shadow); transition: transform 0.3s, box-shadow 0.3s; text-align: center; border: 1px solid transparent; overflow: hidden; }
+.year-card:hover { transform: translateY(-8px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2), 0 0 15px var(--electric-color); }
+.primary .folder-icon { color: var(--primary-color); }
+.secondary .folder-icon { color: var(--secondary-color); }
+.tertiary .folder-icon { color: var(--tertiary-color); }
+.quaternary .folder-icon { color: var(--quaternary-color); }
+.main-footer { background-color: var(--nav-bg); color: #a0a0a0; text-align: center; padding: 20px; font-size: 0.9em; }
+
+/* --- Material Page Hero Section (Transparent Over Background) --- */
+.materials-page-hero {
+    background: none !important;
+    color: var(--text-dark);
+    text-shadow: none;
+    padding: 40px 0 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.materials-page-hero h1 { color: var(--secondary-color) !important; font-size: 3em; }
+.materials-page-hero p { color: #333 !important; font-weight: 600; }
+
+
+/* --- FULL CONTENT BACKGROUNDS (Applied to the <main> tag) --- */
+
+/* 1. First Year: Uses 1.jpg */
+.first-year-full-bg {
+    background: linear-gradient(rgba(255, 204, 204, 0.9), rgba(255, 204, 204, 0.9)), 
+                url('images/1.jpg') no-repeat fixed center; 
+    background-size: cover;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    min-height: calc(100vh - 80px);
+}
+
+/* 2. Second Year: Uses 2.jpg */
+.second-year-full-bg {
+    background: linear-gradient(rgba(255, 204, 230, 0.9), rgba(210, 180, 230, 0.8)), 
+                url('images/2.jpg') no-repeat fixed center; 
+    background-size: cover;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    min-height: calc(100vh - 80px);
+}
+
+/* 3. Third Year: Uses 3.jpg */
+.third-year-full-bg {
+    background: linear-gradient(rgba(255, 182, 193, 0.9), rgba(138, 43, 226, 0.5)), 
+                url('images/3.jpg') no-repeat fixed center; 
+    background-size: cover;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    min-height: calc(100vh - 80px);
+}
+
+/* 4. Fourth Year: Uses 4.jpg */
+.fourth-year-full-bg {
+    background: linear-gradient(rgba(255, 105, 180, 0.8), rgba(75, 0, 130, 0.7)), 
+                url('images/4.jpg') no-repeat fixed center; 
+    background-size: cover;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    min-height: calc(100vh - 80px);
+}
+
+/* Ensures semester titles and subject folders still float over the background */
+.materials-accordion h2.section-title {
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 10px;
+    border-radius: 5px;
+}
+.subject-folder {
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+
+/* --- Materials Page Accordion Styles --- */
+.materials-accordion {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.subject-folder {
+    background-color: #fff;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-left: 5px solid; 
+    transition: box-shadow 0.3s;
+}
+
+.subject-folder:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.subject-folder.primary { border-left-color: var(--primary-color); }
+.subject-folder.secondary { border-left-color: var(--secondary-color); }
+.subject-folder.tertiary { border-left-color: var(--tertiary-color); }
+.subject-folder.quaternary { border-left-color: var(--quaternary-color); }
+
+.accordion-toggle {
+    width: 100%;
+    background-color: #f1f1f1;
+    color: var(--text-dark);
+    padding: 18px 25px;
+    border: none;
+    text-align: left;
+    font-size: 1.2em;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.accordion-toggle:hover {
+    background-color: #e2e2e2;
+}
+
+.subject-folder.primary .accordion-toggle i { color: var(--primary-color); }
+.subject-folder.secondary .accordion-toggle i { color: var(--secondary-color); }
+.subject-folder.tertiary .accordion-toggle i { color: var(--tertiary-color); }
+.subject-folder.quaternary .accordion-toggle i { color: var(--quaternary-color); }
+
+
+.accordion-content {
+    padding: 0 25px;
+    max-height: 0; 
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    background-color: #fcfcfc;
+}
+
+.resource-list {
+    padding: 15px 0;
+}
+
+.resource-list h4 {
+    font-size: 1.1em;
+    color: #555;
+    margin: 10px 0;
+    padding-left: 5px;
+}
+
+.resource-item {
+    display: block;
+    padding: 8px 0;
+    border-bottom: 1px dashed #e0e0e0;
+    transition: background-color 0.2s, padding-left 0.2s;
+    color: #555;
+}
+
+.resource-item:last-child {
+    border-bottom: none;
+}
+
+.resource-item:hover {
+    color: var(--primary-color);
+    background-color: #f7f7f7;
+    padding-left: 10px;
+}
+
+.resource-item i {
+    width: 25px;
+    text-align: center;
+}
+
+.resource-item.note i { color: var(--primary-color); } /* Pink notes icon */
+.resource-item.test i { color: var(--quaternary-color); }
+.resource-item.book i { color: var(--tertiary-color); }
+
+/* --- About Page Styles (Updated to match main pink theme) --- */
+.about-content {
+    padding: 30px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+.about-content h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--primary-color); /* Updated border color */
+    padding-bottom: 5px;
+}
+
+.core-values ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.core-values ul li {
+    background-color: var(--background-light); /* Light pink accent */
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border-left: 4px solid var(--secondary-color);
+    font-weight: 600;
+}
+
+.core-values ul li i {
+    color: var(--secondary-color);
+    margin-right: 10px;
+}
+
+/* --- Contact Page Styles (For general form structure if you re-add the form) --- */
+.contact-form-section {
+    padding: 30px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+.contact-info h2, .contact-form h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.contact-info p i {
+    color: var(--tertiary-color);
+    margin-right: 10px;
+}
+
+.contact-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    .main-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-item {
+        margin: 5px 10px;
+        padding: 5px 10px;
+        font-size: 0.9em;
+    }
+}

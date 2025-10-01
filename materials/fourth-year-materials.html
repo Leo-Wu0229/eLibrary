@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fourth Year Materials - eLibrary</title>
+    <link rel="stylesheet" href="../styles.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* CSS specific to the two-tier accordion structure (required for functionality) */
+        .semester-toggle {
+            width: 100%; background-color: var(--secondary-color); color: white; padding: 20px 25px; border: none; text-align: left; font-size: 1.5em; cursor: pointer; outline: none; display: flex; justify-content: space-between; align-items: center; font-weight: 700; border-radius: 8px; margin-top: 15px; transition: background-color 0.3s;
+        }
+        .semester-toggle:hover { background-color: var(--primary-color); }
+        .semester-content { padding: 0 10px; max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out; background-color: rgba(255, 255, 255, 0.9); border-radius: 0 0 8px 8px; }
+        .coming-soon-message { padding: 30px; text-align: center; color: #666; font-style: italic; border-radius: 8px; }
+        .semester-content .subject-folder { margin-top: 15px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+<body>
+    
+    <div class="electric-grid-bg"></div>
+
+    <header class="main-header">
+        <div class="header-container">
+            <a href="../index.html" class="logo">eLibrary</a>
+            <nav class="main-nav">
+                <a href="../index.html" class="nav-item"><i class="fas fa-home"></i> Home</a>
+                <a href="../about.html" class="nav-item"><i class="fas fa-info-circle"></i> About Us</a>
+                <a href="../contact.html" class="nav-item"><i class="fas fa-envelope"></i> Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content-wrapper"> 
+        
+        <section class="materials-page-hero hero-fourth-year scroll-reveal from-bottom">
+            <h1>FOURTH YEAR ACADEMICS</h1>
+            <p>Final year subjects for Sem 7 and Sem 8. Content will be made available when the corresponding session begins.</p>
+        </section>
+
+        <section class="materials-accordion">
+            
+            <div class="semester-section scroll-reveal from-left">
+                <button class="semester-toggle" onclick="toggleSemester(this)">
+                    Semester 7 Subjects (Pre-Graduation)
+                    <span class="folder-status"><i class="fas fa-chevron-down"></i></span>
+                </button>
+                <div class="semester-content">
+                    
+                    <div class="coming-soon-message">
+                        <i class="fas fa-hourglass-half fa-2x" style="color: var(--primary-color); margin-bottom: 10px;"></i>
+                        <h3>Content Coming Soon!</h3>
+                        <p>We are currently focused on providing the best resources for Semester 1. Materials for Semester 7 will be uploaded after the next session begins. Check back soon!</p>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="semester-section scroll-reveal from-right">
+                <button class="semester-toggle" onclick="toggleSemester(this)">
+                    Semester 8 Subjects (Final Thesis & Research)
+                    <span class="folder-status"><i class="fas fa-chevron-down"></i></span>
+                </button>
+                <div class="semester-content">
+                    
+                    <div class="coming-soon-message">
+                        <i class="fas fa-hourglass-half fa-2x" style="color: var(--primary-color); margin-bottom: 10px;"></i>
+                        <h3>Content Coming Soon!</h3>
+                        <p>We are currently focused on providing the best resources for Semester 1. Materials for Semester 8 will be uploaded after the next session begins. Check back soon!</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <p><b>&copy; 2025 eLibrary. Designed for students.</b></p>
+    </footer>
+    
+    <script src="../scripts.js"></script>
+    <script>
+        function toggleSemester(button) {
+            const content = button.nextElementSibling;
+            const statusIcon = button.querySelector('.folder-status i');
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                statusIcon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+            } else {
+                content.style.maxHeight = content.scrollHeight + 50 + "px";
+                statusIcon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+            }
+        }
+    </script>
+</body>
+</html>

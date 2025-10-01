@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Year Materials - eLibrary</title>
+    <link rel="stylesheet" href="../styles.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* --- Cleaned CSS for Two-Tier Accordion Structure --- */
+        /* This CSS defines the visual and structural components of the semester dropdowns */
+        .semester-toggle {
+            width: 100%;
+            background-color: var(--secondary-color); /* Deep Purple background */
+            color: white;
+            padding: 20px 25px;
+            border: none;
+            text-align: left;
+            font-size: 1.5em;
+            cursor: pointer;
+            outline: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            border-radius: 8px;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .semester-toggle:hover {
+            background-color: var(--primary-color); /* Hover to Hot Pink */
+        }
+
+        .semester-content {
+            padding: 0 10px;
+            max-height: 0; 
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 0 0 8px 8px;
+        }
+
+        /* Adjust subject folder styling inside the semester content */
+        .semester-content .subject-folder {
+            margin-top: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Lighter shadow for nested item */
+        }
+        
+        /* Style for the 'Coming Soon' message */
+        .coming-soon-message {
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            border-radius: 8px;
+        }
+
+        /* --- NOTE: Image and Hero styles were removed from here as they belong in styles.css --- */
+    </style>
+</head>
+<body>
+    
+    <div class="electric-grid-bg"></div>
+
+    <header class="main-header">
+        <div class="header-container">
+            <a href="../index.html" class="logo">eLibrary</a>
+            <nav class="main-nav">
+                <a href="../index.html" class="nav-item active"><i class="fas fa-home"></i> Home</a>
+                <a href="../about.html" class="nav-item"><i class="fas fa-info-circle"></i> About Us</a>
+                <a href="../contact.html" class="nav-item"><i class="fas fa-envelope"></i> Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content-wrapper first-year-full-bg"> 
+        
+        <section class="materials-page-hero hero-first-year scroll-reveal from-bottom">
+            <h1>FIRST YEAR ACADEMICS</h1>
+            <p>I'm currently in Semester 1. Click on a subject below for notes and papers.</p>
+        </section>
+
+        <section class="materials-accordion">
+            
+            <div class="semester-section scroll-reveal from-left">
+                <button class="semester-toggle" onclick="toggleSemester(this)">
+                    Semester 1 Subjects (Foundation)
+                    <span class="folder-status"><i class="fas fa-chevron-down"></i></span>
+                </button>
+                <div class="semester-content">
+                    
+                    <div class="subject-folder primary scale-up">
+                        <button class="accordion-toggle">
+                            <i class="fas fa-calculator"></i>
+                            <h3>Engineering Mathematics I</h3>
+                            <span class="folder-status"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="resource-list">
+                                
+                                <h4><i class="fas fa-layer-group"></i> Unit 1:Matices </h4>
+                                <a href="../docs/math-notes-u1.pdf" target="_blank" class="resource-item note">
+                                    <i class="fas fa-file-pdf"></i> **PDF Notes** (Full Unit Coverage)
+                                </a>
+                                <a href="../docs/math-test-u1.pdf" target="_blank" class="resource-item test">
+                                    <i class="fas fa-vial"></i> **Test Paper** (Practice Questions)
+                                </a>
+                                
+                                <h4><i class="fas fa-layer-group"></i> Unit 2: Differential Calculus-1</h4>
+                                <a href="../docs/math-notes-u2.pdf" target="_blank" class="resource-item note">
+                                    <i class="fas fa-file-pdf"></i> **PDF Notes** (Lecture Slides)
+                                
+                                </a>
+                                <a href="../docs/math-test-u2.pdf" target="_blank" class="resource-item test">
+                                    <i class="fas fa-vial"></i> **Test Paper** (Formula-based Quiz)
+                                </a>
+
+                                <h4><i class="fas fa-layer-group"></i> Unit 3: Integral Calculus</h4>
+                                <a href="../docs/math-notes-u3.pdf" target="_blank" class="resource-item note">
+                                    <i class="fas fa-file-pdf"></i> **PDF Notes** (Solved Examples)
+                                </a>
+                                <a href="../docs/math-test-u3.pdf" target="_blank" class="resource-item test">
+                                    <i class="fas fa-vial"></i> **Test Paper** (Mid-Semester Scope)
+                                </a>
+
+                                <h4><i class="fas fa-layer-group"></i> Unit 4: Vector Algebra</h4>
+                                <a href="../docs/math-notes-u4.pdf" target="_blank" class="resource-item note">
+                                    <i class="fas fa-file-pdf"></i> **PDF Notes** (Theory and Applications)
+                                </a>
+                                <a href="../docs/math-test-u4.pdf" target="_blank" class="resource-item test">
+                                    <i class="fas fa-vial"></i> **Test Paper** (Vector Analysis)
+                                </a>
+
+                                <h4><i class="fas fa-layer-group"></i> Unit 5: Complex Numbers</h4>
+                                <a href="../docs/math-notes-u5.pdf" target="_blank" class="resource-item note">
+                                    <i class="fas fa-file-pdf"></i> **PDF Notes** (Summary Sheet)
+                                </a>
+                                <a href="../docs/math-test-u5.pdf" target="_blank" class="resource-item test">
+                                    <i class="fas fa-vial"></i> **Test Paper** (Final Practice Set)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subject-folder primary scale-up">
+                        <button class="accordion-toggle">
+                            <i class="fas fa-code"></i>
+                            <h3>Introduction to C Programming</h3>
+                            <span class="folder-status"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="resource-list">
+                                <h4><i class="fas fa-layer-group"></i> Unit 1: Introduction & Data Types</h4>
+                                <a href="../docs/c-notes-u1.pdf" target="_blank" class="resource-item note">
+                                    <i class="fas fa-file-pdf"></i> **PDF Notes** (Basics & Syntax)
+                                </a>
+                                <a href="../docs/c-test-u1.pdf" target="_blank" class="resource-item test">
+                                    <i class="fas fa-vial"></i> **Test Paper** (MCQ Fundamentals)
+                                </a>
+
+                                <h4><i class="fas fa-layer-group"></i> Unit 2: Operators & Control Flow</h4>
+                                <a href="../docs/c-notes-u2.pdf" target="_blank" class="resource-item note">
+                                    <i class="fas fa-file-pdf"></i> **PDF Notes** (Conditional Statements)
+                                </a>
+                                <a href="../docs/c-test-u2.pdf" target="_blank" class="resource-item test">
+                                    <i class="fas fa-vial"></i> **Test Paper** (Looping Practice)
+                                </a>
+
+                                <h4><i class="fas fa-layer-group"></i> Unit 3: Functions & Recursion</h4>
+                                <a href="../docs/c-notes-u3.pdf" target="_blank" class="resource-item note">
+                                    <i class="fas fa-file-pdf"></i> **PDF Notes** (Function Reference)
+                                </a>
+                                <a href="../docs/c-test-u3.pdf" target="_blank" class="resource-item test">
+                                    <i class="fas fa-vial"></i> **Test Paper** (Recursive Problem Set)
+                                </a>
+
+                                <h4><i class="fas fa-layer-group"></i> Unit 4: Arrays and Pointers</h4>
+                                <a href="../docs/c-notes-u4.pdf" target="_blank" class="resource-item note">
+                                    <i class="fas fa-file-pdf"></i> **PDF Notes** (Pointers Explained)
+                                </a>
+                                <a href="../docs/c-test-u4.pdf" target="_blank" class="resource-item test">
+                                    <i class="fas fa-vial"></i> **Test Paper** (Pointer Arithmetic)
+                                </a>
+
+                                <h4><i class="fas fa-layer-group"></i> Unit 5: Structures and File I/O</h4>
+                                <a href="../docs/c-notes-u5.pdf" target="_blank" class="resource-item note">
+                                    <i class="fas fa-file-pdf"></i> **PDF Notes** (Structures and Unions)
+                                </a>
+                                <a href="../docs/c-test-u5.pdf" target="_blank" class="resource-item test">
+                                    <i class="fas fa-vial"></i> **Test Paper** (File Handling Questions)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="semester-section scroll-reveal from-right">
+                <button class="semester-toggle" onclick="toggleSemester(this)">
+                    Semester 2 Subjects (Core)
+                    <span class="folder-status"><i class="fas fa-chevron-down"></i></span>
+                </button>
+                <div class="semester-content">
+                    
+                    <div class="coming-soon-message">
+                        <i class="fas fa-hourglass-half fa-2x" style="color: var(--primary-color); margin-bottom: 10px;"></i>
+                        <h3>Content Coming Soon!</h3>
+                        <p>I'm currently focused on providing the best resources for Semester 1. Materials for Semester 2 will be uploaded after the next session begins. Check back soon!</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <p><b>&copy; 2025 eLibrary. Designed for students.</b></p>
+    </footer>
+    
+    <script src="../scripts.js"></script>
+
+    <script>
+        function toggleSemester(button) {
+            const content = button.nextElementSibling;
+            const statusIcon = button.querySelector('.folder-status i');
+            
+            // Toggle the max-height style
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                statusIcon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+            } else {
+                // Set height to content's scroll height plus a buffer
+                content.style.maxHeight = content.scrollHeight + 50 + "px";
+                statusIcon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+            }
+        }
+        
+        // NOTE: The subject toggle logic remains in the external scripts.js file
+    </script>
+
+</body>
+</html>
